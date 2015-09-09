@@ -13,14 +13,14 @@ var Enemy = function(x, y) {
 
 Enemy.prototype.setSpeed = function() {
     return Math.random() * 500 + 150;
-}
+};
 
 Enemy.prototype.checkCollision = function() {
-    if (Math.abs(this.x - player.x) <= 70 && Math.abs(this.y-player.y)<=10) {
+    if (Math.abs(this.x - player.x) <= 70 && Math.abs(this.y - player.y) <= 10) {
         player.x = 200;
         player.y = 400;
     }
-}
+};
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -29,7 +29,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     if (this.x > 500) {
         this.x =- 100;
-        this.speed = this.setSpeed()
+        this.speed = this.setSpeed();
     } else {
         this.x += this.speed * dt;
     }
@@ -54,39 +54,41 @@ var Player = function() {
 };
 
 Player.prototype.update = function() {
-
-}
+};
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+var verticalStep = 83;
+var horizontalStep = 101;
+
 Player.prototype.handleInput = function(key) {
-    if (key === 'left' && this.x>0) {
-        this.x -= 101;
+    if (key === 'left' && this.x > 0) {
+        this.x -= horizontalStep;
     } else if (key === 'up') {
         //When the player hits the water (x=83), he goes back to the grass
-        if (this.y>= 83) {
-            this.y -= 83;
+        if (this.y>= verticalStep) {
+            this.y -= verticalStep;
         } else {
             this.x = 200;
             this.y = 400;
         }
-    } else if (key === 'right' && this.x<400) {
-        this.x += 101;
-    } else if (key === 'down' && this.y<400) {
-        this.y += 83;
+    } else if (key === 'right' && this.x < 400) {
+        this.x += horizontalStep;
+    } else if (key === 'down' && this.y < 400) {
+        this.y += verticalStep;
     } else {
         console.log('This is not a valid input.');
     }
-}
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
 var allEnemies = [];
 for (var i=1; i<4; i++) {
-    allEnemies.push(new Enemy(-100, 83*i-20));
-}
+    allEnemies.push(new Enemy(-100, 83 * i - 20));
+};
 
 // Place the player object in a variable called player
 var player = new Player();
