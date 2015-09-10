@@ -18,5 +18,9 @@ You can only use four commands to move the little boy:
 
 You cannot move the little boy outside the limits of the board.
 
+You have 4 lifes (3 hearts plus a last chance). These hearts will show up in the bottom-right corner of your screen.
+
+Everytime you reach the water, you get one point. These points will show up in the upper-left corner of your screen.
+
 Have fun!
 
