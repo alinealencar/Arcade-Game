@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bangers|Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div>oi</div>
-    <script src="js/resources.js"></script>
-    <script src="js/engine.js"></script>
-    <script src="js/app.js"></script>
+	
+	<div class = "gameTitle" id = "slide">Frogger</div>
+	<div class = "welcome">
+		<p>Hello there! Welcome to Frogger!</p>
+		<button>How to Play 🐸</button>
+    	<p class = "instructions hidden">Playing Frogger is extremely easy. Use the arrow keys on your keyboard to control Joey. Try to make Joey reach the water as much as you can. But be careful of the bugs, you can only hit them 4 times. Good luck!</p>
+	</div>
+	<script>
+		$('button').click(function() {
+			$('.instructions').toggleClass('hidden');
+		})
+	</script>
+    <script src = "js/resources.js"></script>
+    <script src = "js/engine.js"></script>
+    <script src = "js/app.js"></script>
+    <div class = "bottom"><a class = "githubLink" href = "https://github.com/alinesobral/Project3">See this on GitHub</a><br><a class = "myWebsite" href = "#">alinealencar.me</a></div>
 </body>
 </html>
